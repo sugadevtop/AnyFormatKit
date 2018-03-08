@@ -153,6 +153,10 @@ open class SumTextInputFormatter: SumTextFormatter, TextInputFormatterProtocol {
       if range.upperBound > text.count - (suffixStr?.count ?? 0)  {
         upperBound = text.count - (suffixStr?.count ?? 0)
       }
+        
+        if lowerBound >= upperBound {
+            return nil
+        }
       
       let newRange = NSRange(location: lowerBound, length: upperBound - lowerBound)
       return newRange
